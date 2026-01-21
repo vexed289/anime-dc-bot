@@ -1,9 +1,18 @@
+import asyncio
 from bot import createBot
 from commands.search import Search
 from commands.next import Schedule
 
-bot = createBot()
+async def main():
+    bot = createBot()
 
-# 2 commands - !search {name: str} and !next {num: int}. They should output their respective embeds
+    await bot.add_cog(Search(bot))
+    await bot.add_cog(Schedule(bot))
 
-bot.run(open("otherStuff/token.txt").read().strip())
+    with open("otherStuff/token.txt", "r") as f:
+        token = f.read().strip()
+
+    await bot.start(token)
+
+if __name__ == "__main__":
+    asyncio.run(main())

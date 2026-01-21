@@ -59,4 +59,4 @@ class NextView(discord.ui.View):
                 if idx >= 25:
                     break
                 embed.set_footer(text=f"Next {min(num, 25)} anime. Command run by {username} at <t:{int(time.time())}:t>.")
-                return embed
+            return embed

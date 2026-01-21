@@ -1,5 +1,6 @@
 from anilist.client import Client
 from views.embeds import SearchView
+from views.embeds import NextView
 from discord.ext import commands
 client = Client()
 
@@ -31,7 +32,7 @@ class Schedule(commands.Cog):
     @commands.command()
     async def next(self, ctx: commands.Context, *, perPage: int):
         data = await client.query(query, {"perPage": perPage})
-        view: SearchView = SearchView(data)
-        embed = view.currentEmbed(ctx.author.display_name)
+        view: NextView = NextView(data)
+        embed = view.embedData(ctx.author.display_name, num=perPage)
 
         await ctx.send(embed=embed, view=view)
