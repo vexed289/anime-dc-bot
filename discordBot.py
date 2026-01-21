@@ -83,7 +83,7 @@ def result(res, num=0):
         )
         genres = ', '.join(media.get('genres', []))
         if genres == []:
-            genres == "N/A" # type: ignore
+            genres = "N/A" 
         episodes = media['episodes']
         status = str(media.get('status', []))
         if status == []: status = "N/A"
