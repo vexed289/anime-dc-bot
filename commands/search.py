@@ -15,7 +15,18 @@ query ($search: String!) {
       episodes
       status
       averageScore
+      format
       coverImage { large }
+      startDate {
+        year
+        month
+        day
+      }
+      endDate {
+        year
+        month
+        day
+      }
     }
   }
 }
