@@ -15,5 +15,5 @@ async def main():
     await bot.start(token)
 
 if __name__ == "__main__":
-    if asyncio.run(main()):
-        print("bot running")
+    asyncio.run(main())
+    print("bot running")
