@@ -24,10 +24,10 @@ class SearchView(discord.ui.View):
                     )
         
         embed.set_image(url=currentAnime["coverImage"]["large"])
-        embed.set_footer(text=f"Search result {self.idx} of {len(self.media)}. Command run by {username} at <t:{int(time.time())}:t>.")
+        embed.set_footer(text=f"Search result {self.idx  + 1} of {len(self.media)}. Command run by {username} at <t:{int(time.time())}:t>.")
         return embed
     
-    @discord.ui.button(label="Wrong result?")
+    @discord.ui.button(label="Next result")
     async def retry(self, interaction: discord.Interaction, button):
         self.idx = (self.idx + 1) % len(self.media)
         await interaction.response.edit_message(
