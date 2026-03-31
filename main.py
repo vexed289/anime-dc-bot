@@ -15,5 +15,10 @@ async def main():
     await bot.start(token)
 
 if __name__ == "__main__":
-    asyncio.run(main())
-    print("bot running")
+    
+    try:
+        print("bot running")
+        asyncio.run(main())    
+    except Exception as e:
+        print(e)
+    
